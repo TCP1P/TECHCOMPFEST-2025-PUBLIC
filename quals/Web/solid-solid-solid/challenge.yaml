@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: '"Solid Solid Solid" ~ mentor'
+author: "dimas"
+description: |
+  dimas: Apa ya bagusnya buat UI buat challengenya? waifu dah pernah, karbit dah pernah, hololive dah pernah. apa coba yang kurang
+
+  mentor: Furry
+
+  mentor: Solid solid solid
+
+type: "StaticContainer"
+
+flags:
+  - "TCF{flask_is_dead_now_by_simple_dos}"
+
+value: 1000
+
+provide: "./dist"
+# hints:
+#  - dos
+
+container:
+    containerImage: "{{.slug}}:latest"
+    memoryLimit: 50
+    cpuCount: 0.50
+    storageLimit: 1024
+    containerExposePort: 5000
+    enableTrafficCapture: false
+
+scripts:
+    start: cd src && docker build -t {{.slug}} .

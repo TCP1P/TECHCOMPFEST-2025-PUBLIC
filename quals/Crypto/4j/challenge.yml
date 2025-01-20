@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "4j"
+author: "azuketto"
+description: |
+  Let's be real here, crypto lacks imagination
+
+  Connect: nc {{ .host }} 8011
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{abcedefg_hijk_naming_is_hardd}"
+
+value: 1000
+
+provide: "./dist"
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

@@ -1,0 +1,26 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "Secure Server 2.0"
+author: "aimardcr"
+description: | 
+  I just deployed my web using an open-source server, this time my git command was broken, so I just downloaded the source from the russian forum I found.
+  Nothing could ever go wrong again, right?
+
+type: "StaticContainer"
+
+flags:
+  - "TCF{4n0th3r_b4ckd00r_f0r_4n0th3r_d4y}"
+
+value: 1000
+
+container:
+    containerImage: "{{.slug}}:latest"
+    memoryLimit: 500
+    cpuCount: 0.50
+    storageLimit: 1024
+    containerExposePort: 8000
+    enableTrafficCapture: false
+
+scripts:
+    start: cd chall && docker build -t {{.slug}} .

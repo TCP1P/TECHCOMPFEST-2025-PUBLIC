@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "Malas Membuat Framework"
+author: "dimas"
+description: |
+  Malas membuat framework, akhirnya menggunakan yang anti mainstream.
+
+  Server: http://{{ .host }}:62894
+  
+  Bot   : http://{{ .host }}:50078
+
+type: "StaticAttachment"
+value: 1000
+
+flags:
+  - "TCF{1nj3k51_format_tipe_string_di_browser}"
+
+
+provide: "./dist"
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up --build -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

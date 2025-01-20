@@ -1,0 +1,8 @@
+version: '3'
+name: pwn-kenari
+services:
+  kenari:
+    build: .
+    restart: on-failure
+    ports:
+      - "11001:11001"

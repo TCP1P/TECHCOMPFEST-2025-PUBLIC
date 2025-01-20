@@ -1,0 +1,10 @@
+version: '1'
+name: crypto-4j
+services:
+  read-around:
+    build: .
+    restart: on-failure
+    container_name: 4j
+    read_only: true
+    ports:
+      - 8011:8011

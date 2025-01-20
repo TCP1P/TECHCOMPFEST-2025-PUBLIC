@@ -1,0 +1,10 @@
+version: '1'
+name: 'crypto-bunny-hop'
+services:
+  read-around:
+    build: .
+    restart: on-failure
+    container_name: bunny-hop
+    read_only: true
+    ports:
+      - 8010:8010

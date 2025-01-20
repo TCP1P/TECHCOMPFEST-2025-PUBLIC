@@ -1,0 +1,2 @@
+libnum
+pycryptodome

@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "PDF Generator"
+author: "daffainfo"
+description: |
+  Aku membuat sebuah web sederhana untuk membuat file PDF. Namun, aku agak khawatir jika terdapat bug, karena aku membuat web ini dalam 1 hari saja.
+
+  Connect: http://{{.host}}:10012
+type: "StaticAttachment"
+
+flags:
+  - "TCF{P3N71n9nY4_M3M84C4_d0kUM3n74S1_PDFT3X}"
+
+value: 1000
+
+provide: "./dist"
+# hints:
+#  - Apakah kamu sudah membaca dokumentasi pdftex? 👀
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

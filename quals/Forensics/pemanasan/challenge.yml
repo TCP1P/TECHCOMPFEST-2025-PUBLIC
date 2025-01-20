@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../challenge.schema.yaml
+name: "pemanasan"
+author: "fire"
+category: "Forensics"
+description: |
+    I just create handmade pdf. Well i also made flag checker inside pdf file. Cool right? 😎
+
+value: 1000
+type: StaticAttachment
+flags:
+    - TCF2024{mallic1ous_pdf_is_cr4zyy_e1695f085f069fb1ebb2d9df1d013ecb}
+provide: ./peserta/flag_protected.pdf

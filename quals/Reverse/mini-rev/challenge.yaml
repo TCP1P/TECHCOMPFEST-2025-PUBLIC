@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../challenge.schema.yaml
+name: Mini Rev
+type: StaticAttachment
+author: Dimas Maulana
+description: |-
+  First C++ reverse engineering challenge :P
+
+flags:
+  - TCP1P{mini_rev_for_mini_challenge_XD}
+value: 1000
+
+provide: ./dist
+visible: true

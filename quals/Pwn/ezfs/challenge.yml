@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "ezfs"
+author: "rui"
+description: "this might be the dumbest pwn that i've ever made"
+type: "StaticAttachment"
+
+flags:
+  - "TCF{what_kind_of_pwn_is_this???}"
+
+value: 1000
+
+provide: "./dist.zip"
+
+scripts:
+    start: docker compose -p {{.slug}} up -d
+    stop: docker compose -p {{.slug}} down --volumes

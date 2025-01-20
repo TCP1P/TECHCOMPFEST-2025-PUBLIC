@@ -1,0 +1,8 @@
+version: '3'
+services:
+  secure-login:
+    ports:
+      - '8081:8000'
+    build:
+      context: .
+      dockerfile: Dockerfile

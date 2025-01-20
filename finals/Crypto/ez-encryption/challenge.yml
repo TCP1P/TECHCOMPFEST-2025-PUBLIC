@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "Ez Encryption"
+author: "BerlianGabriel"
+description: |
+  Trust me you don't need to know math to solve this ;)
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{encrypting_predictable_plaintext_with_linear_PRNG_is_bad_a3f4c9d8e7b6a1c2}"
+
+value: 1000
+
+provide: "./dist"

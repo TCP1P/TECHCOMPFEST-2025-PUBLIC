@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../challenge.schema.yaml
+
+name: Yowai Kagi
+type: StaticAttachment
+author: BosToken
+description: |-
+  Terinspirasi dari Compfest 15 Hackerclass ;)
+
+flags:
+  - TCP1P{th4tS_k3y_1s_t00_We4K}
+value: 1000
+
+provide: ./dist
+visible: true

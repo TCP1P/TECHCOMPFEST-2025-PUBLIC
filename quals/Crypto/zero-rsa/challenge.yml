@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "Zero knowledge RSA?"
+author: "azuketto"
+description: |
+  Is this how you do zero knowledge? Just hide every parameter?
+
+  Connect: nc {{ .host }} 8010
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{g006oo_g4aGaa_b4by_c1ph3R_eefa59e5872228632c18e4d598ef0fa2}"
+
+value: 1000
+
+provide: "./dist"
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up --build -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

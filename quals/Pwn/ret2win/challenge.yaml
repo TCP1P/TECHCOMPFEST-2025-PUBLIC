@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../challenge.schema.yaml
+
+name: ret2win
+type: StaticAttachment
+author: zran
+description: |-
+  Buffer overflow di stack bisa kita gunakan untuk overwrite saved RIP. Kita bisa overwrite dengan alamat fungsi win untuk menjalankannya.
+
+  Connect: nc {{ .host }} 19000
+
+flags:
+  - TCP1P{bisa_jalanin_fungsi_apapun_kan_jadinya_bang}
+value: 1000
+provide: ./dist/
+
+scripts:
+  start: (docker compose up --build -d)
+  stop: (docker compose down)
+
+visible: true

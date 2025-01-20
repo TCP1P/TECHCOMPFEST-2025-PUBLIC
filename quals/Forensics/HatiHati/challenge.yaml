@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "HatiHati"
+author: "daffainfo"
+description: |
+  Bruh, someone just hacked my website >:(, help me answer these questions
+
+  Connect: http://{{.host}}:32128
+type: "StaticAttachment"
+
+flags:
+  - "TCF{congrats_you_just_analyzed_nginx_log!!!}"
+
+value: 1000
+
+provide: "./dist"
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

@@ -1,0 +1,9 @@
+services:
+  pony:
+    build: .
+    ports:
+      - 13371:8000
+    working_dir: /home/ctf
+    entrypoint: /etc/init.sh
+    init: true
+    restart: always

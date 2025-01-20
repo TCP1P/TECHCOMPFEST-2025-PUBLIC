@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "sizenot"
+author: "rui"
+description: |
+  heapnote kesukaan para player pwn terutama msfir
+
+  Connect: nc {{ .host }} 10011
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{how_many_house_can_fit_into_solving_this_heap_shenanigans}"
+
+value: 1000
+
+provide: "./dist.zip"
+
+scripts:
+    start: cd chall && docker compose -p {{.slug}} up --build -d
+    stop: cd chall && docker compose -p {{.slug}} down --volumes

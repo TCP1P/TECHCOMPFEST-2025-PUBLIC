@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../challenge.schema.yaml
+name: Exxxxed
+author: Dimas
+type: StaticAttachment
+description: |-
+    is it secure?
+
+    note: `there's a flag in admin cookie`
+
+    Bot: http://{{ .host }}:4546/report/
+
+    Web: http://{{ .host }}:4546
+
+flags:
+  - TCP1P{replace_is_really_sus_function_isn't_it?}
+value: 1000
+visible: false
+
+hints:
+  - replace is a sus function
+scripts:
+  start: (docker compose up --build --detach)
+  stop: (docker compose down --volumes)

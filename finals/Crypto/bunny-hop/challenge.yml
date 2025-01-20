@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "Bunny Hop"
+author: "azuketto"
+description: |
+  Time to script some bhops
+
+  Connect: nc {{ .host }} 8010
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{inspired_by_IMO_1988_Q6_c0e447ad47d75f05}"
+
+value: 1000
+
+provide: "./dist"
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up --build -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

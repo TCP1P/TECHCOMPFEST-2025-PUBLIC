@@ -1,0 +1,20 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "Secure Server"
+author: "aimardcr"
+description: | 
+  I just deployed my web using an open-source server, nothing could ever go wrong right?
+
+  URL: http://localhost:8082/
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{S1mpl3_B4ckd00r_F0r_4_S1mpl3_W3b_S3rv3r}"
+
+value: 1000
+
+scripts:
+    start: cd chall && docker compose -p {{.slug}} up -d
+    stop: cd chall && docker compose -p {{.slug}} down --volumes

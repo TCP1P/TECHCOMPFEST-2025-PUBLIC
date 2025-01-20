@@ -1,0 +1,9 @@
+services:
+  ezfs:
+    build: .
+    ports:
+      - 10002:8000
+    working_dir: /home/ctf
+    entrypoint: /etc/init.sh
+    init: true
+    restart: always

@@ -1,0 +1,6 @@
+services:
+  for-hatihati:
+    build: .
+    restart: always
+    ports:
+      - "32128:1337"

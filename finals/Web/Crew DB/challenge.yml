@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "Crew DB"
+author: "daffainfo"
+description: |
+  The Professor for the ultimate digital heist, you must access his Cyber Heist Crew Database to uncover the roles and expertise of each specialist on his team. Break through the system's defenses to gather intel and get one step closer to the vault.
+
+  Connect: http://{{.host}}:10012
+type: "StaticAttachment"
+
+flags:
+  - "TCF{sqli_biasalah_ini_A319CF31FB4C0}"
+
+value: 1000
+
+provide: "./dist"
+
+scripts:
+    start: cd src && docker compose -p {{.slug}} up -d
+    stop: cd src && docker compose -p {{.slug}} down --volumes

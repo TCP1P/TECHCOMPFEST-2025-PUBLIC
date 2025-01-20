@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "My Little Pony: Friendship is Magic"
+author: "rui"
+description: |
+  gw yang pinkie pie https://www.ponyos.org/
+
+  Connect: nc {{ .host }} 13371
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{I_got_another_OS_PWN_for_ACE_CTF_2025}"
+
+value: 1000
+
+provide: "./dist.zip"
+
+scripts:
+    start: cd chall && docker compose -p {{.slug}} up --build -d
+    stop: cd chall && docker compose -p {{.slug}} down --volumes

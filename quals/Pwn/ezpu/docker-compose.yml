@@ -1,0 +1,10 @@
+version: '3'
+services:
+  ezpu:
+    build: .
+    ports:
+      - 10001:10001
+    working_dir: /home/ctf
+    entrypoint: /etc/init.sh
+    init: true
+    restart: always

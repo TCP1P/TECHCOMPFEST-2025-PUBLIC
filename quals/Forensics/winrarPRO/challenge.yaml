@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "winrarPRO"
+author: "53buahapel"
+description: "I just found this winrarPRO from the internet, but i think there is something suspicious about it. Can you check it for me?"
+type: "StaticAttachment"
+
+flags:
+  - "TCF{easy_phising_malware_analysis_gg}"
+
+value: 1000
+
+provide: "./dist"
+

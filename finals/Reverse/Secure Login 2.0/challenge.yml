@@ -1,0 +1,16 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "Secure Login 2.0"
+author: "aimardcr"
+description: | 
+  Login with `admin:admin` to get the flag, but it's not that easy this time.
+
+type: "StaticAttachment"
+
+flags:
+  - "TCF{we-need-more-end-to-end-encryption-challenges-in-ctfs-tbh}"
+
+value: 1000
+
+provide: "./chall"

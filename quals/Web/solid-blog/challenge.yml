@@ -1,0 +1,25 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "Solid Blog"
+author: "53buahapel"
+description: "Komunitas kami baru membangun website, yang pastinya sangat secure karena ada WAF nya. Namun hal ini ga bisa jadi acuan si.Tolong yang admin kasi tau kalo masi ada bug dengan report ke endpoint `/report/` e.g `http://domain:port/report/`."
+type: "StaticContainer"
+
+flags:
+  - "TCF{kami_suka_kucing_karena_mereka_lucu_dan_imut}"
+
+value: 1000
+
+provide: "./dist"
+
+container:
+    containerImage: "{{.slug}}:latest"
+    memoryLimit: 1024
+    cpuCount: 1
+    storageLimit: 1024
+    containerExposePort: 80
+    enableTrafficCapture: false
+
+scripts:
+    start: cd src && docker build -t {{.slug}} .

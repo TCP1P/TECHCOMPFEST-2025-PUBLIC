@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/dimasma0305/ctfify/refs/heads/master/function/template/templates/others/ctf-template/.gzctf/challenge.schema.yaml
+
+name: "ezpu"
+author: "rui"
+description: "new cpu instruction??? nah man its just backdoor"
+type: "StaticAttachment"
+
+flags:
+  - "TCF{siapa_sangka_cuma_modal.byte_0x3f_bisa_dapet_AAR_AAW}"
+
+value: 1000
+
+provide: "./dist.zip"
+
+scripts:
+    start: docker compose -p {{.slug}} up -d
+    stop: docker compose -p {{.slug}} down --volumes
